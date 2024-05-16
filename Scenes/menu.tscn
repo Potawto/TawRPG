@@ -1,20 +1,42 @@
-[gd_scene load_steps=3 format=3 uid="uid://1pd2kvt4yyt4"]
+[gd_scene load_steps=7 format=3 uid="uid://1pd2kvt4yyt4"]
 
 [ext_resource type="PackedScene" uid="uid://b84gmgr5i4xo6" path="res://Scenes/gui.tscn" id="1_3o61q"]
+[ext_resource type="Script" path="res://Scripts/MainMenuButton.gd" id="2_vn8dx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pfspp"]
 bg_color = Color(0.892982, 0.153494, 0.64581, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_35lpm"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mgmt4"]
+draw_center = false
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5am2y"]
+
 [node name="Menu" type="Node"]
 
 [node name="GUI" parent="." instance=ExtResource("1_3o61q")]
+visible = false
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_pfspp")
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
@@ -31,3 +53,106 @@ text = "[center][font_size=100][outline_size=20][outline_color=black]
 [wave amp=50.0 freq=5.0 connected=1][color=red]m[color=orange]A[color=yellow]i[color=green]N [color=blue]m[color=indigo]e[color=violet]N[color=indigo]u[color=blue]u[color=green]u[color=yellow]u[color=orange]u[color=red]u
 
 [tornado radius=50.0 freq=8.0 connected=1][color=white]w[outline_color=white][color=black]e[outline_color=black][color=white]e[outline_color=white][color=black]e[outline_color=black][color=white]e[outline_color=black][outline_color=white][color=black]e[outline_color=black][color=white]e[outline_color=black][outline_color=white][color=black]e[outline_color=black][color=white]e[outline_color=white][color=black]e"
+
+[node name="BG" type="PanelContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_35lpm")
+
+[node name="ScreenMargin" type="MarginContainer" parent="BG"]
+layout_mode = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 6
+
+[node name="ScreenBorder" type="PanelContainer" parent="BG/ScreenMargin"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_mgmt4")
+
+[node name="MarginContainer" type="MarginContainer" parent="BG/ScreenMargin/ScreenBorder"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = -5
+theme_override_constants/margin_right = 150
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BG/ScreenMargin/ScreenBorder/MarginContainer"]
+layout_mode = 2
+
+[node name="MenuTitle" type="RichTextLabel" parent="BG/ScreenMargin/ScreenBorder/MarginContainer/VBoxContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[font_size=80][pulse freq=0.5 color=#fffffff0 ease=-0.5][b]Menu[/b][/pulse][/font_size]     [wave amp=50.0 freq=5.0 connected=1][font_size=60]🥔🥔[/font_size][font_size=40][tornado radius=5.0 freq=1.0 connected=1]🥔[/tornado][shake rate=50.0 level=10 connected=1]🥔[/shake][/font_size][/wave]"
+fit_content = true
+scroll_active = false
+
+[node name="Columns" type="HBoxContainer" parent="BG/ScreenMargin/ScreenBorder/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MenuLabels" type="VBoxContainer" parent="BG/ScreenMargin/ScreenBorder/MarginContainer/VBoxContainer/Columns"]
+layout_mode = 2
+
+[node name="Play" type="Button" parent="BG/ScreenMargin/ScreenBorder/MarginContainer/VBoxContainer/Columns/MenuLabels" node_paths=PackedStringArray("my_panel")]
+layout_mode = 2
+text = "Play"
+alignment = 0
+script = ExtResource("2_vn8dx")
+my_panel = NodePath("../../MenuPanels/Play")
+
+[node name="Save" type="Button" parent="BG/ScreenMargin/ScreenBorder/MarginContainer/VBoxContainer/Columns/MenuLabels" node_paths=PackedStringArray("my_panel")]
+layout_mode = 2
+text = "Save"
+alignment = 0
+script = ExtResource("2_vn8dx")
+my_panel = NodePath("../../MenuPanels/Save")
+
+[node name="Load" type="Button" parent="BG/ScreenMargin/ScreenBorder/MarginContainer/VBoxContainer/Columns/MenuLabels" node_paths=PackedStringArray("my_panel")]
+layout_mode = 2
+text = "Load"
+alignment = 0
+script = ExtResource("2_vn8dx")
+my_panel = NodePath("../../MenuPanels/Load")
+
+[node name="Settings" type="Button" parent="BG/ScreenMargin/ScreenBorder/MarginContainer/VBoxContainer/Columns/MenuLabels" node_paths=PackedStringArray("my_panel")]
+layout_mode = 2
+text = "Settings"
+alignment = 0
+script = ExtResource("2_vn8dx")
+my_panel = NodePath("../../MenuPanels/Settings")
+
+[node name="Quit" type="Button" parent="BG/ScreenMargin/ScreenBorder/MarginContainer/VBoxContainer/Columns/MenuLabels" node_paths=PackedStringArray("my_panel")]
+layout_mode = 2
+text = "Quit"
+alignment = 0
+script = ExtResource("2_vn8dx")
+my_panel = NodePath("../../MenuPanels/Quit")
+
+[node name="MenuPanels" type="PanelContainer" parent="BG/ScreenMargin/ScreenBorder/MarginContainer/VBoxContainer/Columns"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Play" type="PanelContainer" parent="BG/ScreenMargin/ScreenBorder/MarginContainer/VBoxContainer/Columns/MenuPanels"]
+visible = false
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5am2y")
+
+[node name="Save" type="PanelContainer" parent="BG/ScreenMargin/ScreenBorder/MarginContainer/VBoxContainer/Columns/MenuPanels"]
+visible = false
+layout_mode = 2
+
+[node name="Load" type="PanelContainer" parent="BG/ScreenMargin/ScreenBorder/MarginContainer/VBoxContainer/Columns/MenuPanels"]
+visible = false
+layout_mode = 2
+
+[node name="Settings" type="PanelContainer" parent="BG/ScreenMargin/ScreenBorder/MarginContainer/VBoxContainer/Columns/MenuPanels"]
+visible = false
+layout_mode = 2
+
+[node name="Quit" type="PanelContainer" parent="BG/ScreenMargin/ScreenBorder/MarginContainer/VBoxContainer/Columns/MenuPanels"]
+visible = false
+layout_mode = 2
