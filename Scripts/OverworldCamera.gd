@@ -39,6 +39,8 @@ func _is_player_visible() -> bool:
 
 
 func _on_viewport_area_body_exited(body: Node2D) -> void:
+	# TODO check if body is player at least
+	# TODO all camera movement should probably be modulo math based or something
 	if body.position.y < position.y - get_viewport_rect().size.y/2:
 		position.y -= get_viewport_rect().size.y
 #		print("UP")
