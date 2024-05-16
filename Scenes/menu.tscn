@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://1pd2kvt4yyt4"]
+[gd_scene load_steps=11 format=3 uid="uid://1pd2kvt4yyt4"]
 
 [ext_resource type="Theme" uid="uid://ccs1pg82i7037" path="res://Resources/main_menu_theme.tres" id="2_3wnre"]
 [ext_resource type="Script" path="res://Scripts/MainMenuButton.gd" id="2_vn8dx"]
 [ext_resource type="Script" path="res://Scripts/MainMenuPanels.gd" id="3_j60xr"]
 [ext_resource type="StyleBox" uid="uid://d3m0076dha426" path="res://Resources/menu_panel.tres" id="4_ss2pk"]
+[ext_resource type="PackedScene" uid="uid://bpnoqmoomdi7b" path="res://Scenes/credits.tscn" id="5_mombo"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pfspp"]
 bg_color = Color(0.892982, 0.153494, 0.64581, 1)
@@ -127,7 +128,7 @@ script = ExtResource("2_vn8dx")
 [node name="Credits" type="Button" parent="BG/ScreenMargin/ScreenBorder/MarginContainer/VBoxContainer/Columns/MenuLabels"]
 layout_mode = 2
 theme = ExtResource("2_3wnre")
-text = "Settings"
+text = "Credits"
 alignment = 0
 script = ExtResource("2_vn8dx")
 
@@ -145,7 +146,6 @@ theme_override_styles/panel = SubResource("StyleBoxEmpty_5u47s")
 script = ExtResource("3_j60xr")
 
 [node name="Play" type="PanelContainer" parent="BG/ScreenMargin/ScreenBorder/MarginContainer/VBoxContainer/Columns/MenuPanels"]
-visible = false
 layout_mode = 2
 theme_override_styles/panel = ExtResource("4_ss2pk")
 
@@ -307,7 +307,11 @@ theme_override_styles/panel = ExtResource("4_ss2pk")
 layout_mode = 2
 theme = ExtResource("2_3wnre")
 
+[node name="VBoxContainer" parent="BG/ScreenMargin/ScreenBorder/MarginContainer/VBoxContainer/Columns/MenuPanels/Credits/MarginContainer" instance=ExtResource("5_mombo")]
+layout_mode = 2
+
 [node name="Quit" type="PanelContainer" parent="BG/ScreenMargin/ScreenBorder/MarginContainer/VBoxContainer/Columns/MenuPanels"]
+visible = false
 layout_mode = 2
 theme_override_styles/panel = ExtResource("4_ss2pk")
 

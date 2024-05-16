@@ -2,17 +2,16 @@
 
 [ext_resource type="FontFile" uid="uid://bchhqjmeyfdb1" path="res://Assets/Fonts/ComicCodeLigatures-Regular.otf" id="1_8rbdi"]
 
-[node name="VBoxContainer" type="VBoxContainer"]
-
-[node name="Title" type="RichTextLabel" parent="."]
-layout_mode = 2
-bbcode_enabled = true
-text = "[font_size=40][center][b]Credits[/b][/center]"
-fit_content = true
-autowrap_mode = 0
+[node name="ScrollContainer" type="ScrollContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="HFlowContainer" type="HFlowContainer" parent="."]
 layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Content" type="RichTextLabel" parent="HFlowContainer"]
