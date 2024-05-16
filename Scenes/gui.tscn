@@ -64,6 +64,7 @@ theme_override_constants/margin_bottom = 5
 
 [node name="MarginPanel" type="Panel" parent="Margin"]
 layout_mode = 2
+mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_yclgg")
 
 [node name="Screen" type="HBoxContainer" parent="Margin"]
