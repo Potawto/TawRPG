@@ -5,4 +5,4 @@
 [node name="Global" type="Node"]
 script = ExtResource("1_ycqt3")
 debug_elements_start_visible = false
-save_file_path = "\"user://savegame.json\""
+save_path_format = "user://save_{slot}_{note}.json"

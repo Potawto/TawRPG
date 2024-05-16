@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://1pd2kvt4yyt4"]
+[gd_scene load_steps=13 format=3 uid="uid://1pd2kvt4yyt4"]
 
 [ext_resource type="Theme" uid="uid://ccs1pg82i7037" path="res://Resources/main_menu_theme.tres" id="2_3wnre"]
 [ext_resource type="Script" path="res://Scripts/MainMenuButton.gd" id="2_vn8dx"]
@@ -6,6 +6,8 @@
 [ext_resource type="StyleBox" uid="uid://d3m0076dha426" path="res://Resources/menu_panel.tres" id="4_ss2pk"]
 [ext_resource type="Script" path="res://Scripts/playme.gd" id="5_k4aga"]
 [ext_resource type="PackedScene" uid="uid://bpnoqmoomdi7b" path="res://Scenes/credits.tscn" id="5_mombo"]
+[ext_resource type="Script" path="res://Scripts/SimpleSaveButton.gd" id="6_bdv0v"]
+[ext_resource type="Script" path="res://Scripts/SimpleLoadButton.gd" id="7_q7lxg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pfspp"]
 bg_color = Color(0.892982, 0.153494, 0.64581, 1)
@@ -171,11 +173,28 @@ theme_override_styles/panel = ExtResource("4_ss2pk")
 layout_mode = 2
 theme = ExtResource("2_3wnre")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="BG/ScreenMargin/ScreenBorder/MarginContainer/VBoxContainer/Columns/MenuPanels/Save/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="BG/ScreenMargin/ScreenBorder/MarginContainer/VBoxContainer/Columns/MenuPanels/Save/MarginContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="BG/ScreenMargin/ScreenBorder/MarginContainer/VBoxContainer/Columns/MenuPanels/Save/MarginContainer/VBoxContainer"]
 layout_mode = 2
 bbcode_enabled = true
-text = "[bgcolor=lightblue][shake rate=10.0 level=100.0 connected=1][font_size=80]sAve pAneL wOoOoOo
+text = "[bgcolor=lightblue][shake rate=10.0 level=100.0 connected=1][font_size=80][center]sAve pAneL wOoOoOo
 "
+fit_content = true
+
+[node name="SaveButton" type="Button" parent="BG/ScreenMargin/ScreenBorder/MarginContainer/VBoxContainer/Columns/MenuPanels/Save/MarginContainer/VBoxContainer" node_paths=PackedStringArray("saved")]
+layout_mode = 2
+text = "Save"
+script = ExtResource("6_bdv0v")
+saved = NodePath("../SaveResult")
+saved_show_for = 2.0
+
+[node name="SaveResult" type="RichTextLabel" parent="BG/ScreenMargin/ScreenBorder/MarginContainer/VBoxContainer/Columns/MenuPanels/Save/MarginContainer/VBoxContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[center][color=skyblue][b][wave amp=12.0 freq=15.0 connected=1]Saved!"
+fit_content = true
 
 [node name="Load" type="PanelContainer" parent="BG/ScreenMargin/ScreenBorder/MarginContainer/VBoxContainer/Columns/MenuPanels"]
 visible = false
@@ -186,10 +205,27 @@ theme_override_styles/panel = ExtResource("4_ss2pk")
 layout_mode = 2
 theme = ExtResource("2_3wnre")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="BG/ScreenMargin/ScreenBorder/MarginContainer/VBoxContainer/Columns/MenuPanels/Load/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="BG/ScreenMargin/ScreenBorder/MarginContainer/VBoxContainer/Columns/MenuPanels/Load/MarginContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="BG/ScreenMargin/ScreenBorder/MarginContainer/VBoxContainer/Columns/MenuPanels/Load/MarginContainer/VBoxContainer" node_paths=PackedStringArray("loaded")]
+layout_mode = 2
+text = "Load"
+script = ExtResource("7_q7lxg")
+loaded = NodePath("../LoadResult")
+loaded_show_for = 2.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="BG/ScreenMargin/ScreenBorder/MarginContainer/VBoxContainer/Columns/MenuPanels/Load/MarginContainer/VBoxContainer"]
 layout_mode = 2
 bbcode_enabled = true
 text = "[bgcolor=darkred][shake rate=100.0 level=5.0 connected=1][font_size=80]Load panel yeaaa"
+
+[node name="LoadResult" type="RichTextLabel" parent="BG/ScreenMargin/ScreenBorder/MarginContainer/VBoxContainer/Columns/MenuPanels/Load/MarginContainer/VBoxContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[center][color=gold][b][wave amp=12.0 freq=15.0 connected=1]Loaded!
+"
+fit_content = true
 
 [node name="Settings" type="PanelContainer" parent="BG/ScreenMargin/ScreenBorder/MarginContainer/VBoxContainer/Columns/MenuPanels"]
 visible = false
