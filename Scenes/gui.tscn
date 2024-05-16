@@ -408,8 +408,8 @@ layout_mode = 2
 [node name="MuteButton" type="CheckButton" parent="Margin/Screen/Right/Top/MarginContainer/HBoxContainer"]
 layout_mode = 2
 focus_mode = 0
-button_pressed = true
-text = " 🎶"
+text = " 🔇"
+alignment = 2
 script = ExtResource("4_vo1md")
 
 [node name="Bottom" type="PanelContainer" parent="Margin/Screen/Right"]
