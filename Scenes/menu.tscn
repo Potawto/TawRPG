@@ -2,7 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://ccs1pg82i7037" path="res://Resources/main_menu_theme.tres" id="2_3wnre"]
 [ext_resource type="Script" path="res://Scripts/MainMenuButton.gd" id="2_vn8dx"]
-[ext_resource type="Script" path="res://Scenes/MainMenuPanels.gd" id="3_j60xr"]
+[ext_resource type="Script" path="res://Scripts/MainMenuPanels.gd" id="3_j60xr"]
 [ext_resource type="StyleBox" uid="uid://d3m0076dha426" path="res://Resources/menu_panel.tres" id="4_ss2pk"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pfspp"]
@@ -118,6 +118,13 @@ alignment = 0
 script = ExtResource("2_vn8dx")
 
 [node name="Settings" type="Button" parent="BG/ScreenMargin/ScreenBorder/MarginContainer/VBoxContainer/Columns/MenuLabels"]
+layout_mode = 2
+theme = ExtResource("2_3wnre")
+text = "Settings"
+alignment = 0
+script = ExtResource("2_vn8dx")
+
+[node name="Credits" type="Button" parent="BG/ScreenMargin/ScreenBorder/MarginContainer/VBoxContainer/Columns/MenuLabels"]
 layout_mode = 2
 theme = ExtResource("2_3wnre")
 text = "Settings"
@@ -290,6 +297,15 @@ layout_mode = 2
 bbcode_enabled = true
 text = "[tornado radius=10.0 freq=1.0 connected=1]Whatever"
 fit_content = true
+
+[node name="Credits" type="PanelContainer" parent="BG/ScreenMargin/ScreenBorder/MarginContainer/VBoxContainer/Columns/MenuPanels"]
+visible = false
+layout_mode = 2
+theme_override_styles/panel = ExtResource("4_ss2pk")
+
+[node name="MarginContainer" type="MarginContainer" parent="BG/ScreenMargin/ScreenBorder/MarginContainer/VBoxContainer/Columns/MenuPanels/Credits"]
+layout_mode = 2
+theme = ExtResource("2_3wnre")
 
 [node name="Quit" type="PanelContainer" parent="BG/ScreenMargin/ScreenBorder/MarginContainer/VBoxContainer/Columns/MenuPanels"]
 layout_mode = 2
