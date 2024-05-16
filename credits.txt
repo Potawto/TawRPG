@@ -1,0 +1,56 @@
+[font_size=12][b]Brackeys’ Platformer Bundle from itch.io[/b]
+[code]not  used[/code]
+CC0; By:
+[ul]
+analogStudios - [i]sprites[/i]
+RottingPizels - [i]sprites[/i]
+Brackeys, Sofia Thirslund - [i]music[/i]
+Brackeys, Asbjorn Thirslund - [i]sounds[/i]
+Jayvee Enaguas - [i]fonts[/i]
+HarvettFox96 - [i]fonts[/i]
+[/ul]
+
+[font_size=12][b]puny world from itch.io[/b]
+[code]overworld tiles[/code]
+CC0; By: 
+[ul]
+Shade
+[/ul]
+
+[font_size=12][b]16x16 mini world sprites from itch.io[/b]
+[code]goblin farmer character[/code]
+CC0; By:
+[ul]
+Shade
+octoshrimpy
+[/ul]
+
+[font_size=12][b]Character Footsteps (Dirt & Grass) from itch.io[/b]
+[code]footstep sound[/code]
+Royalty free; By:
+[ul]
+nebula audio
+[/ul]
+
+[font_size=12][b]FX Pixel Texture from itch.io[/b]
+[code]dust particle[/code]
+; By:
+[ul]
+BDragon1727
+[/ul]
+
+[font_size=12][b]100 Retro Pixel Effect Pack 1 from itch.io[/b]
+[code]not  used[/code]
+; By:
+[ul]
+BDragon1727
+[/ul]
+
+
+[font_size=12][b] [/b]
+[code][/code]
+; By:
+[ul]
+[/ul]
+
+[/font_size]

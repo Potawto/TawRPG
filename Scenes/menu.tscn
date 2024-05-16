@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://1pd2kvt4yyt4"]
+
+[ext_resource type="PackedScene" uid="uid://b84gmgr5i4xo6" path="res://Scenes/gui.tscn" id="1_3o61q"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pfspp"]
+bg_color = Color(0.892982, 0.153494, 0.64581, 1)
+
+[node name="Menu" type="Node"]
+
+[node name="GUI" parent="." instance=ExtResource("1_3o61q")]
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_pfspp")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[center][font_size=100][outline_size=20][outline_color=black]
+[wave amp=50.0 freq=5.0 connected=1][color=red]m[color=orange]A[color=yellow]i[color=green]N [color=blue]m[color=indigo]e[color=violet]N[color=indigo]u[color=blue]u[color=green]u[color=yellow]u[color=orange]u[color=red]u
+
+[tornado radius=50.0 freq=8.0 connected=1][color=white]w[outline_color=white][color=black]e[outline_color=black][color=white]e[outline_color=white][color=black]e[outline_color=black][color=white]e[outline_color=black][outline_color=white][color=black]e[outline_color=black][color=white]e[outline_color=black][outline_color=white][color=black]e[outline_color=black][color=white]e[outline_color=white][color=black]e"

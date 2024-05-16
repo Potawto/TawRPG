@@ -1,0 +1,450 @@
+[gd_scene load_steps=11 format=3 uid="uid://b84gmgr5i4xo6"]
+
+[ext_resource type="StyleBox" uid="uid://bbd3v0yucwbc0" path="res://Resources/style_box_empty.tres" id="1_cbkwu"]
+[ext_resource type="Script" path="res://Scripts/MenuBarButton.gd" id="1_je2pj"]
+[ext_resource type="StyleBox" uid="uid://dj31yqshcinkj" path="res://Resources/menubar_style_box_hover.tres" id="3_gbdx7"]
+[ext_resource type="Script" path="res://Scripts/MuteButton.gd" id="4_vo1md"]
+[ext_resource type="Script" path="res://Scripts/DebugElement.gd" id="5_8gse1"]
+[ext_resource type="Script" path="res://Scripts/PlayerInfoBox.gd" id="5_q2yws"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yclgg"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0, 0, 0, 1)
+draw_center = false
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2qjem"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0, 0, 0, 0.490196)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 4
+
+[sub_resource type="LabelSettings" id="LabelSettings_uxpt3"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_owqio"]
+vertical = true
+
+[node name="GUI" type="CanvasLayer"]
+
+[node name="Margin" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="MarginPanel" type="Panel" parent="Margin"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_yclgg")
+
+[node name="Screen" type="HBoxContainer" parent="Margin"]
+layout_mode = 2
+
+[node name="Left" type="VBoxContainer" parent="Margin/Screen"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Top" type="PanelContainer" parent="Margin/Screen/Left"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_2qjem")
+
+[node name="MarginContainer" type="MarginContainer" parent="Margin/Screen/Left/Top"]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Margin/Screen/Left/Top/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Margin/Screen/Left/Top/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "test"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="Margin/Screen/Left/Top/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "test"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Bottom" type="PanelContainer" parent="Margin/Screen/Left"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 10
+theme_override_styles/panel = SubResource("StyleBoxFlat_2qjem")
+
+[node name="MarginContainer" type="MarginContainer" parent="Margin/Screen/Left/Bottom"]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Margin/Screen/Left/Bottom/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Margin/Screen/Left/Bottom/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "test"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="Margin/Screen/Left/Bottom/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "test"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Center" type="VBoxContainer" parent="Margin/Screen"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Top" type="PanelContainer" parent="Margin/Screen/Center"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_2qjem")
+
+[node name="MenuBar" type="MarginContainer" parent="Margin/Screen/Center/Top"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Margin/Screen/Center/Top/MenuBar"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="ButtonPanel1" type="PanelContainer" parent="Margin/Screen/Center/Top/MenuBar/HBoxContainer" node_paths=PackedStringArray("_menu_bar")]
+layout_mode = 2
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = ExtResource("1_cbkwu")
+script = ExtResource("1_je2pj")
+_menu_bar = NodePath("../..")
+_goto_scene = "Scenes/menu.tscn"
+_style_box_empty = ExtResource("1_cbkwu")
+_style_box_hover = ExtResource("3_gbdx7")
+
+[node name="HBoxContainer" type="VBoxContainer" parent="Margin/Screen/Center/Top/MenuBar/HBoxContainer/ButtonPanel1"]
+show_behind_parent = true
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Panel" type="PanelContainer" parent="Margin/Screen/Center/Top/MenuBar/HBoxContainer/ButtonPanel1/HBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_2qjem")
+
+[node name="MenuIcon" type="Label" parent="Margin/Screen/Center/Top/MenuBar/HBoxContainer/ButtonPanel1/HBoxContainer/Panel"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "⚙​"
+label_settings = SubResource("LabelSettings_uxpt3")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MenuLabel" type="Label" parent="Margin/Screen/Center/Top/MenuBar/HBoxContainer/ButtonPanel1/HBoxContainer" groups=["menu_bar_expands"]]
+visible = false
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 12
+text = "Menu"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="KeyBox" type="PanelContainer" parent="Margin/Screen/Center/Top/MenuBar/HBoxContainer/ButtonPanel1/HBoxContainer" groups=["menu_bar_expands"]]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_2qjem")
+
+[node name="CenterContainer" type="CenterContainer" parent="Margin/Screen/Center/Top/MenuBar/HBoxContainer/ButtonPanel1/HBoxContainer/KeyBox"]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Esc" type="Label" parent="Margin/Screen/Center/Top/MenuBar/HBoxContainer/ButtonPanel1/HBoxContainer/KeyBox/CenterContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 12
+text = "Esc"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="Margin/Screen/Center/Top/MenuBar/HBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_owqio")
+
+[node name="ButtonPanel2" type="PanelContainer" parent="Margin/Screen/Center/Top/MenuBar/HBoxContainer" node_paths=PackedStringArray("_menu_bar")]
+layout_mode = 2
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = ExtResource("1_cbkwu")
+script = ExtResource("1_je2pj")
+_menu_bar = NodePath("../..")
+_goto_scene = "Scenes/credits.tscn"
+_style_box_empty = ExtResource("1_cbkwu")
+_style_box_hover = ExtResource("3_gbdx7")
+
+[node name="HBoxContainer" type="VBoxContainer" parent="Margin/Screen/Center/Top/MenuBar/HBoxContainer/ButtonPanel2"]
+show_behind_parent = true
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Panel" type="PanelContainer" parent="Margin/Screen/Center/Top/MenuBar/HBoxContainer/ButtonPanel2/HBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_2qjem")
+
+[node name="HelpIcon" type="Label" parent="Margin/Screen/Center/Top/MenuBar/HBoxContainer/ButtonPanel2/HBoxContainer/Panel"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "❔​"
+label_settings = SubResource("LabelSettings_uxpt3")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HelpLabel" type="Label" parent="Margin/Screen/Center/Top/MenuBar/HBoxContainer/ButtonPanel2/HBoxContainer" groups=["menu_bar_expands"]]
+visible = false
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 12
+text = "Help
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="KeyBox" type="PanelContainer" parent="Margin/Screen/Center/Top/MenuBar/HBoxContainer/ButtonPanel2/HBoxContainer" groups=["menu_bar_expands"]]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_2qjem")
+
+[node name="CenterContainer" type="CenterContainer" parent="Margin/Screen/Center/Top/MenuBar/HBoxContainer/ButtonPanel2/HBoxContainer/KeyBox"]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="F1" type="Label" parent="Margin/Screen/Center/Top/MenuBar/HBoxContainer/ButtonPanel2/HBoxContainer/KeyBox/CenterContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 12
+text = "F1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator2" type="VSeparator" parent="Margin/Screen/Center/Top/MenuBar/HBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_owqio")
+
+[node name="ButtonPanel3" type="PanelContainer" parent="Margin/Screen/Center/Top/MenuBar/HBoxContainer" node_paths=PackedStringArray("_menu_bar")]
+layout_mode = 2
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = ExtResource("1_cbkwu")
+script = ExtResource("1_je2pj")
+_menu_bar = NodePath("../..")
+_goto_scene = "Scenes/map.tscn"
+_style_box_empty = ExtResource("1_cbkwu")
+_style_box_hover = ExtResource("3_gbdx7")
+
+[node name="HBoxContainer" type="VBoxContainer" parent="Margin/Screen/Center/Top/MenuBar/HBoxContainer/ButtonPanel3"]
+show_behind_parent = true
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Panel" type="PanelContainer" parent="Margin/Screen/Center/Top/MenuBar/HBoxContainer/ButtonPanel3/HBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_2qjem")
+
+[node name="HelpIcon" type="Label" parent="Margin/Screen/Center/Top/MenuBar/HBoxContainer/ButtonPanel3/HBoxContainer/Panel"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "🗺​"
+label_settings = SubResource("LabelSettings_uxpt3")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MapLabel" type="Label" parent="Margin/Screen/Center/Top/MenuBar/HBoxContainer/ButtonPanel3/HBoxContainer" groups=["menu_bar_expands"]]
+visible = false
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 12
+text = "Map
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="KeyBox" type="PanelContainer" parent="Margin/Screen/Center/Top/MenuBar/HBoxContainer/ButtonPanel3/HBoxContainer" groups=["menu_bar_expands"]]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_2qjem")
+
+[node name="CenterContainer" type="CenterContainer" parent="Margin/Screen/Center/Top/MenuBar/HBoxContainer/ButtonPanel3/HBoxContainer/KeyBox"]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="F2" type="Label" parent="Margin/Screen/Center/Top/MenuBar/HBoxContainer/ButtonPanel3/HBoxContainer/KeyBox/CenterContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 12
+text = "F2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Bottom" type="PanelContainer" parent="Margin/Screen/Center"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+theme_override_styles/panel = SubResource("StyleBoxFlat_2qjem")
+
+[node name="MarginContainer" type="MarginContainer" parent="Margin/Screen/Center/Bottom"]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Margin/Screen/Center/Bottom/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Margin/Screen/Center/Bottom/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "test"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="Margin/Screen/Center/Bottom/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "test"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Right" type="VBoxContainer" parent="Margin/Screen"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Top" type="PanelContainer" parent="Margin/Screen/Right"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_styles/panel = SubResource("StyleBoxFlat_2qjem")
+
+[node name="MarginContainer" type="MarginContainer" parent="Margin/Screen/Right/Top"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Margin/Screen/Right/Top/MarginContainer"]
+layout_mode = 2
+
+[node name="MuteButton" type="CheckButton" parent="Margin/Screen/Right/Top/MarginContainer/HBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+button_pressed = true
+text = " 🎶"
+script = ExtResource("4_vo1md")
+
+[node name="Bottom" type="PanelContainer" parent="Margin/Screen/Right"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 10
+theme_override_styles/panel = SubResource("StyleBoxFlat_2qjem")
+
+[node name="MarginContainer" type="MarginContainer" parent="Margin/Screen/Right/Bottom"]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+script = ExtResource("5_8gse1")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Margin/Screen/Right/Bottom/MarginContainer"]
+layout_mode = 2
+script = ExtResource("5_q2yws")
+child_h_alignmnent = 2
+child_v_alignment = 2
+
+[node name="Label" type="Label" parent="Margin/Screen/Right/Bottom/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "test"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="Margin/Screen/Right/Bottom/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "test"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="toggled" from="Margin/Screen/Right/Top/MarginContainer/HBoxContainer/MuteButton" to="Margin/Screen/Right/Top/MarginContainer/HBoxContainer/MuteButton" method="_on_toggled"]
