@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bddlnik6ulwmu" path="res://Scenes/overworld.tscn" id="1_6w6jy"]
 [ext_resource type="PackedScene" uid="uid://b84gmgr5i4xo6" path="res://Scenes/gui.tscn" id="2_acwnc"]
 
-[node name="map" type="Node"]
+[node name="Map" type="Node"]
 
 [node name="GUI" parent="." instance=ExtResource("2_acwnc")]
 
