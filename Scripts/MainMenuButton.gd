@@ -1,6 +1,9 @@
 extends Button
 
-@export var my_panel: PanelContainer
+@onready var _menu_panels := $"../../MenuPanels" as MainMenuPanelContainer
+
+func _ready() -> void:
+	connect("pressed", _on_pressed)
 
 func _on_pressed() -> void:
-	my_panel.visible = not my_panel.visible
+	_menu_panels.enable_panel(name)
