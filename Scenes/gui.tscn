@@ -235,7 +235,6 @@ mouse_default_cursor_shape = 2
 theme_override_styles/panel = ExtResource("1_cbkwu")
 script = ExtResource("1_je2pj")
 _menu_bar = NodePath("../..")
-_goto_scene = "Scenes/credits.tscn"
 _style_box_empty = ExtResource("1_cbkwu")
 _style_box_hover = ExtResource("3_gbdx7")
 
