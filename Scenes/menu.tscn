@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://1pd2kvt4yyt4"]
+[gd_scene load_steps=14 format=3 uid="uid://1pd2kvt4yyt4"]
 
 [ext_resource type="Theme" uid="uid://ccs1pg82i7037" path="res://Resources/main_menu_theme.tres" id="2_3wnre"]
 [ext_resource type="Script" path="res://Scripts/MainMenuButton.gd" id="2_vn8dx"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bpnoqmoomdi7b" path="res://Scenes/credits.tscn" id="5_mombo"]
 [ext_resource type="Script" path="res://Scripts/SimpleSaveButton.gd" id="6_bdv0v"]
 [ext_resource type="Script" path="res://Scripts/SimpleLoadButton.gd" id="7_q7lxg"]
+[ext_resource type="Script" path="res://Scripts/quitme.gd" id="9_gc0oc"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pfspp"]
 bg_color = Color(0.892982, 0.153494, 0.64581, 1)
@@ -361,6 +362,8 @@ theme = ExtResource("2_3wnre")
 [node name="RichTextLabel" type="RichTextLabel" parent="BG/ScreenMargin/ScreenBorder/MarginContainer/VBoxContainer/Columns/MenuPanels/Quit/MarginContainer"]
 layout_mode = 2
 bbcode_enabled = true
-text = "Quit panel [color=gold][b][wave amp=12.0 freq=15.0 connected=1]we're rich"
+text = "[color=gold][b][wave amp=12.0 freq=15.0 connected=1]  [url]we're rich, it's [/url][/wave][url][color=green][shake rate=15.0 level=5 connected=1]sandwich time"
+script = ExtResource("9_gc0oc")
 
 [connection signal="meta_clicked" from="BG/ScreenMargin/ScreenBorder/MarginContainer/VBoxContainer/Columns/MenuPanels/Play/MarginContainer/RichTextLabel" to="BG/ScreenMargin/ScreenBorder/MarginContainer/VBoxContainer/Columns/MenuPanels/Play/MarginContainer/RichTextLabel" method="_on_meta_clicked"]
+[connection signal="meta_clicked" from="BG/ScreenMargin/ScreenBorder/MarginContainer/VBoxContainer/Columns/MenuPanels/Quit/MarginContainer/RichTextLabel" to="BG/ScreenMargin/ScreenBorder/MarginContainer/VBoxContainer/Columns/MenuPanels/Quit/MarginContainer/RichTextLabel" method="_on_meta_clicked"]
