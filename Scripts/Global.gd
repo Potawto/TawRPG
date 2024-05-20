@@ -29,7 +29,7 @@ func _ready() -> void:
 
 func goto_scene(path) -> void:
 	save()
-	print("Leaving " + str(current_scene))
+	#print("Leaving " + str(current_scene))
 	call_deferred("_deferred_goto_scene", path)
 	
 	
