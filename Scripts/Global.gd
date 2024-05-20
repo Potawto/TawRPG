@@ -1,7 +1,6 @@
 extends Node
 
 @export var debug_elements_start_visible = true
-@export_group("Save System")
 @export var save_path_format : String
 
 
