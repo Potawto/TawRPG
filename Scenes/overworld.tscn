@@ -4319,10 +4319,9 @@ layer_3/tile_data = PackedInt32Array(1900621, 524288, 30, 2097230, 131072, 27, 1
 layer_4/name = "Deco"
 layer_4/tile_data = PackedInt32Array(-589738, 65536, 28, -524199, 65536, 28)
 
-[node name="OverworldCamera" type="Camera2D" parent="." node_paths=PackedStringArray("_camera_area")]
+[node name="OverworldCamera" type="Camera2D" parent="."]
 position = Vector2(160, 90)
 script = ExtResource("3_ljseo")
-_camera_area = NodePath("ViewportArea")
 
 [node name="ViewportArea" type="Area2D" parent="OverworldCamera"]
 collision_layer = 8
