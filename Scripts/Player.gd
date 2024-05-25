@@ -70,12 +70,19 @@ func get_terrain_of_tile() -> int:
 func get_coords() -> Vector2i:
 	return tilemap.local_to_map(tilemap.to_local(position))
 
+
 func get_world_coords() -> Vector2:
 	var map_coords = get_coords()
 	var local_coords = tilemap.map_to_local(map_coords)
 	var world_coords = tilemap.to_global(local_coords)
 	return world_coords
 
+
+func dig_here() -> void:
+	var current_tilemap = $"../TileMap" as TileMap
+	var where = current_tilemap.local_to_map(current_tilemap.to_local(position))
+	
+	current_tilemap.set_cell(-1, where, 1, Vector2i(0,7), 0)
 
 func enter_tile() -> void:
 	pass

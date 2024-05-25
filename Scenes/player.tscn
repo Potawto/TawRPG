@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://dghtst4ja7wa"]
+[gd_scene load_steps=26 format=3 uid="uid://dghtst4ja7wa"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_h8gos"]
 [ext_resource type="Texture2D" uid="uid://x0m0kueea30i" path="res://Assets/Sprites/tile_outline.png" id="2_nvdwl"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://e5o2np1nxuij" path="res://Assets/Particles/32x32_Star_0.png" id="5_qtomy"]
 [ext_resource type="Script" path="res://Scripts/States/PlayerStates/WalkState.gd" id="6_uj3qy"]
 [ext_resource type="Script" path="res://Scripts/States/PlayerStates/JumpState.gd" id="7_76g84"]
+[ext_resource type="Script" path="res://Scripts/States/PlayerStates/DigState.gd" id="10_dms7s"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_n6b55"]
 radius = 2.0
@@ -167,9 +168,38 @@ tracks/0/keys = {
 "values": [7, 8, 9, 8]
 }
 
+[sub_resource type="Animation" id="Animation_barkg"]
+resource_name = "attack_right"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [25, 26, 27]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2(0, 1), Vector2(0, -2), Vector2(0, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fuumr"]
 _data = {
 "RESET": SubResource("Animation_so0ad"),
+"attack_right": SubResource("Animation_barkg"),
 "idle": SubResource("Animation_rw0qn"),
 "idle_right": SubResource("Animation_xorjj"),
 "idle_up": SubResource("Animation_hficp"),
@@ -290,5 +320,8 @@ script = ExtResource("6_uj3qy")
 [node name="JumpState" type="Node" parent="PlayerStateMachine"]
 script = ExtResource("7_76g84")
 jump_speed = 4.0
+
+[node name="DigState" type="Node" parent="PlayerStateMachine"]
+script = ExtResource("10_dms7s")
 
 [connection signal="speed_changed" from="." to="PlayerStateMachine/WalkState" method="_on_player_speed_changed"]

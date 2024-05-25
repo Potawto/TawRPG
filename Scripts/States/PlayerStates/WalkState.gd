@@ -54,6 +54,9 @@ func physics_update(_delta: float) -> void:
 	if Input.is_action_just_pressed("jump"):
 		transitioned.emit("JumpState")
 		return
+	if Input.is_action_just_pressed("dig"):
+		transitioned.emit("DigState")
+		return
 				
 	if owner.velocity == Vector2.ZERO:
 		transitioned.emit("IdleState")
