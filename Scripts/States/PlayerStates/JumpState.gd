@@ -18,6 +18,15 @@ func enter(_msg := {}) -> void:
 	_tile_center = owner.get_world_coords()
 	jump_sfx.play()
 	owner.animation_player.play("jump", -1, jump_speed)
+	
+	if not get_tree().current_scene:
+		return
+	
+	# TODO unbad
+	if get_tree().current_scene.name == "Map":
+		Global.goto_scene("Scenes/location.tscn")
+	elif get_tree().current_scene.name == "Location":
+		Global.goto_scene("Scenes/map.tscn")
 
 
 func update(delta: float) -> void:
