@@ -12,7 +12,7 @@ func _ready() -> void:
 	var k = 0
 	for i in range(size):
 		for j in range(size):
-			tile_map.set_cell(0, Vector2i(i, j), 0, Vector2i(0, 0), 0)
+			#tile_map.set_cell(0, Vector2i(i, j), 0, Vector2i(0, 0), 0)
 			_cells[k] = Vector2i(i, j)
 			k += 1
 	tile_map.set_cells_terrain_connect(0, _cells, 0, 0, false)
