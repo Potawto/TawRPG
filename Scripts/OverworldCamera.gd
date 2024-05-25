@@ -1,7 +1,7 @@
 extends Camera2D
 
 @export var _player_check_frequency: float
-@export var _camera_area: Area2D
+#@export var _camera_area: Area2D
 
 # Time since last check
 var _player_check_timer = 0.0
