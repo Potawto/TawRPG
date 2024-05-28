@@ -27,6 +27,8 @@ layer_3/name = "Buildings"
 layer_3/tile_data = PackedInt32Array(1900621, 524288, 30, 2097230, 131072, 27, 1900624, 589824, 26, 2031696, 262144, 30, 1966161, 131072, 27, 2162769, 524288, 29, 2097235, 720896, 32, 2097236, 786432, 32, 2097237, 786432, 32)
 layer_4/name = "Deco"
 layer_4/tile_data = PackedInt32Array(-589738, 65536, 28, -524199, 65536, 28)
+layer_5/name = "Stuff"
+layer_5/tile_data = PackedInt32Array()
 
 [node name="OverworldCamera" type="Camera2D" parent="."]
 position = Vector2(160, 90)
