@@ -19,6 +19,16 @@ func _input(event):
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 		else:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+	
+	if event.is_action_pressed("enter_location"):
+		if not get_tree().current_scene:
+			return
+			
+		# TODO unbad
+		if get_tree().current_scene.name == "Map":
+			Global.goto_scene("Scenes/location.tscn")
+		elif get_tree().current_scene.name == "Location":
+			Global.goto_scene("Scenes/map.tscn")
 
 
 func _ready() -> void:
