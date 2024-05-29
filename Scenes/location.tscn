@@ -19,8 +19,8 @@ layer_0/name = "terrain"
 layer_1/name = "stuff"
 layer_1/tile_data = PackedInt32Array()
 
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(2, 2)
-script = ExtResource("4_1on2y")
-
 [node name="Player" parent="." instance=ExtResource("5_onkfu")]
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(4, 4)
+script = ExtResource("4_1on2y")
