@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://b84gmgr5i4xo6"]
+[gd_scene load_steps=12 format=3 uid="uid://b84gmgr5i4xo6"]
 
 [ext_resource type="StyleBox" uid="uid://bbd3v0yucwbc0" path="res://Resources/style_box_empty.tres" id="1_cbkwu"]
-[ext_resource type="Script" path="res://Scripts/MenuBarButton.gd" id="1_je2pj"]
+[ext_resource type="Script" path="res://Scripts/MenuBarButtonGotoScene.gd" id="2_s5fkm"]
 [ext_resource type="StyleBox" uid="uid://dj31yqshcinkj" path="res://Resources/menubar_style_box_hover.tres" id="3_gbdx7"]
+[ext_resource type="Script" path="res://Scripts/MenuBarButtonToggleVisible.gd" id="4_oklpy"]
 [ext_resource type="Script" path="res://Scripts/MuteButton.gd" id="4_vo1md"]
 [ext_resource type="Script" path="res://Scripts/DebugElement.gd" id="5_8gse1"]
 [ext_resource type="Script" path="res://Scripts/PlayerInfoBox.gd" id="5_q2yws"]
@@ -92,18 +93,14 @@ theme_override_constants/margin_bottom = 4
 [node name="VBoxContainer" type="VBoxContainer" parent="Margin/Screen/Left/Top/MarginContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Margin/Screen/Left/Top/MarginContainer/VBoxContainer"]
+[node name="HelpInfo" type="Label" parent="Margin/Screen/Left/Top/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 12
-text = "test"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Label2" type="Label" parent="Margin/Screen/Left/Top/MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 12
-text = "test"
-horizontal_alignment = 1
+text = "Move - WASD
+Sprint - Shift
+Enter location - E
+Dig - Q
+Debug info - F3"
 vertical_alignment = 1
 
 [node name="Bottom" type="PanelContainer" parent="Margin/Screen/Left"]
@@ -166,9 +163,9 @@ layout_mode = 2
 mouse_filter = 1
 mouse_default_cursor_shape = 2
 theme_override_styles/panel = ExtResource("1_cbkwu")
-script = ExtResource("1_je2pj")
-_menu_bar = NodePath("../..")
+script = ExtResource("2_s5fkm")
 _goto_scene = "Scenes/menu.tscn"
+_menu_bar = NodePath("../..")
 _style_box_empty = ExtResource("1_cbkwu")
 _style_box_hover = ExtResource("3_gbdx7")
 
@@ -228,12 +225,13 @@ layout_mode = 2
 mouse_filter = 2
 theme_override_styles/separator = SubResource("StyleBoxLine_owqio")
 
-[node name="ButtonPanel2" type="PanelContainer" parent="Margin/Screen/Center/Top/MenuBar/HBoxContainer" node_paths=PackedStringArray("_menu_bar")]
+[node name="ButtonPanel2" type="PanelContainer" parent="Margin/Screen/Center/Top/MenuBar/HBoxContainer" node_paths=PackedStringArray("_element", "_menu_bar")]
 layout_mode = 2
 mouse_filter = 1
 mouse_default_cursor_shape = 2
 theme_override_styles/panel = ExtResource("1_cbkwu")
-script = ExtResource("1_je2pj")
+script = ExtResource("4_oklpy")
+_element = NodePath("../../../../../Left/Top/MarginContainer")
 _menu_bar = NodePath("../..")
 _style_box_empty = ExtResource("1_cbkwu")
 _style_box_hover = ExtResource("3_gbdx7")
@@ -300,9 +298,9 @@ layout_mode = 2
 mouse_filter = 1
 mouse_default_cursor_shape = 2
 theme_override_styles/panel = ExtResource("1_cbkwu")
-script = ExtResource("1_je2pj")
-_menu_bar = NodePath("../..")
+script = ExtResource("2_s5fkm")
 _goto_scene = "Scenes/map.tscn"
+_menu_bar = NodePath("../..")
 _style_box_empty = ExtResource("1_cbkwu")
 _style_box_hover = ExtResource("3_gbdx7")
 
