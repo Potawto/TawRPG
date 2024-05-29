@@ -2,7 +2,6 @@ class_name MenuBarButton
 extends PanelContainer
 
 @export var _menu_bar: Container
-@export var _goto_scene: String
 
 @export_group("Hover Style")
 @export var _style_box_empty: StyleBoxEmpty
@@ -33,6 +32,4 @@ func _on_mouse_exited() -> void:
 
 
 func _on_gui_input(event: InputEvent) -> void:
-	if event is InputEventMouseButton:
-		#var mouse_event = event as InputEventMouseButton
-		Global.goto_scene(_goto_scene)
+	pass
