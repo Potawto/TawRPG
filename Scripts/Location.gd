@@ -17,5 +17,8 @@ func _ready() -> void:
 			k += 1
 	tile_map.set_cells_terrain_connect(0, _cells, 0, 0, false)
 	
-	player.position = $Camera2D.position
-	$"Player/PlayerStateMachine".state.transitioned.emit("JumpState")
+	var tilemap := $TileMap as TileMap
+	var tilesize = tilemap.tile_set.tile_size
+	
+	player.position.x = (size * tilesize.x) / 2 
+	player.position.y = (size * tilesize.y) / 2
