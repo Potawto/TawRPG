@@ -68,10 +68,15 @@ func get_terrain_of_tile() -> int:
 
 
 func get_coords() -> Vector2i:
-	return tilemap.local_to_map(tilemap.to_local(position))
+	if tilemap:
+		return tilemap.local_to_map(tilemap.to_local(position))
+	else:
+		return Vector2i(0,0)
 
 
 func get_world_coords() -> Vector2:
+	if not tilemap:
+		return Vector2(0.0,0.0)
 	var map_coords = get_coords()
 	var local_coords = tilemap.map_to_local(map_coords)
 	var world_coords = tilemap.to_global(local_coords)
