@@ -23,7 +23,6 @@ func _input(event):
 	if event.is_action_pressed("enter_location"):
 		if not get_tree().current_scene:
 			return
-			
 		# TODO unbad
 		if get_tree().current_scene.name == "Map":
 			Global.goto_scene("Scenes/location.tscn")
