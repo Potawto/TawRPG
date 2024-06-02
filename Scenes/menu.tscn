@@ -157,13 +157,24 @@ theme_override_styles/panel = ExtResource("4_ss2pk")
 layout_mode = 2
 theme = ExtResource("2_3wnre")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="BG/ScreenMargin/ScreenBorder/MarginContainer/VBoxContainer/Columns/MenuPanels/Play/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="BG/ScreenMargin/ScreenBorder/MarginContainer/VBoxContainer/Columns/MenuPanels/Play/MarginContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="BG/ScreenMargin/ScreenBorder/MarginContainer/VBoxContainer/Columns/MenuPanels/Play/MarginContainer/VBoxContainer"]
 layout_mode = 2
 bbcode_enabled = true
-text = "[bgcolor=hotpink][wave amp=50.0 freq=5.0 connected=1][font_size=80][url]Play me[/url]"
+text = "[bgcolor=darkgreen][wave amp=50.0 freq=3.0 connected=1][font_size=80][url]Overworld[/url]"
 fit_content = true
 script = ExtResource("5_k4aga")
 _scene = "Scenes/map.tscn"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="BG/ScreenMargin/ScreenBorder/MarginContainer/VBoxContainer/Columns/MenuPanels/Play/MarginContainer/VBoxContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[bgcolor=black][wave amp=80.0 freq=2.0 connected=1][font_size=80][rainbow freq=0.2 sat=0.6 val=0.9][url]Starscape[/url]"
+fit_content = true
+script = ExtResource("5_k4aga")
+_scene = "Scenes/starscape.tscn"
 
 [node name="Save" type="PanelContainer" parent="BG/ScreenMargin/ScreenBorder/MarginContainer/VBoxContainer/Columns/MenuPanels"]
 visible = false
@@ -365,5 +376,6 @@ bbcode_enabled = true
 text = "[color=gold][b][wave amp=12.0 freq=15.0 connected=1]  [url]we're rich, it's [/url][/wave][url][color=green][shake rate=15.0 level=5 connected=1]sandwich time"
 script = ExtResource("9_gc0oc")
 
-[connection signal="meta_clicked" from="BG/ScreenMargin/ScreenBorder/MarginContainer/VBoxContainer/Columns/MenuPanels/Play/MarginContainer/RichTextLabel" to="BG/ScreenMargin/ScreenBorder/MarginContainer/VBoxContainer/Columns/MenuPanels/Play/MarginContainer/RichTextLabel" method="_on_meta_clicked"]
+[connection signal="meta_clicked" from="BG/ScreenMargin/ScreenBorder/MarginContainer/VBoxContainer/Columns/MenuPanels/Play/MarginContainer/VBoxContainer/RichTextLabel" to="BG/ScreenMargin/ScreenBorder/MarginContainer/VBoxContainer/Columns/MenuPanels/Play/MarginContainer/VBoxContainer/RichTextLabel" method="_on_meta_clicked"]
+[connection signal="meta_clicked" from="BG/ScreenMargin/ScreenBorder/MarginContainer/VBoxContainer/Columns/MenuPanels/Play/MarginContainer/VBoxContainer/RichTextLabel2" to="BG/ScreenMargin/ScreenBorder/MarginContainer/VBoxContainer/Columns/MenuPanels/Play/MarginContainer/VBoxContainer/RichTextLabel2" method="_on_meta_clicked"]
 [connection signal="meta_clicked" from="BG/ScreenMargin/ScreenBorder/MarginContainer/VBoxContainer/Columns/MenuPanels/Quit/MarginContainer/RichTextLabel" to="BG/ScreenMargin/ScreenBorder/MarginContainer/VBoxContainer/Columns/MenuPanels/Quit/MarginContainer/RichTextLabel" method="_on_meta_clicked"]
