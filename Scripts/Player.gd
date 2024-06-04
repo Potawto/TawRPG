@@ -75,14 +75,14 @@ func get_terrain_of_tile() -> int:
 			_last_warning = warning
 		return terrains_here[-1]
 
-
+## Tilemap Vector2i coords
 func get_coords() -> Vector2i:
 	if tilemap:
 		return tilemap.local_to_map(tilemap.to_local(position))
 	else:
 		return Vector2i(0,0)
 
-
+## World Vector2 coords
 func get_world_coords() -> Vector2:
 	if not tilemap:
 		return Vector2(0.0,0.0)
