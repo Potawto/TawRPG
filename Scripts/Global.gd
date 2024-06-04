@@ -33,6 +33,10 @@ func _input(event):
 func _ready() -> void:
 	var root = get_tree().root
 	current_scene = root.get_child(root.get_child_count() - 1)
+	#ResourceLoader.load_threaded_request("Scenes/map.tscn")
+	#ResourceLoader.load_threaded_request("Scenes/overworld.tscn")
+	#ResourceLoader.load_threaded_request("Scenes/location.tscn")
+	
 
 
 func goto_scene(path) -> void:
