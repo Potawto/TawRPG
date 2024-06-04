@@ -34,6 +34,9 @@ var _last_warning: String;
 @onready var tilemap := %TileMap as TileMap
 @onready var tile_outline := $TileOutline as Sprite2D
 
+func _ready() -> void:
+	Global.player = self
+
 
 func _process(_delta: float) -> void:
 	tile_outline.position = get_world_coords()
