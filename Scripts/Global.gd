@@ -54,6 +54,7 @@ func goto_location(coords: Vector2i, terrains: Array) -> void:
 	call_deferred("_deferred_goto_location", location)
 
 func _deferred_goto_location(location) -> void:
+	save()
 	current_scene.free()
 	current_scene = location
 	player = null
@@ -62,7 +63,7 @@ func _deferred_goto_location(location) -> void:
 
 
 func goto_scene(scene) -> void:
-	save()
+	#save()
 	#print("Leaving " + str(current_scene))
 	call_deferred("_deferred_goto_scene", scene)
 
