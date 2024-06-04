@@ -48,8 +48,14 @@ func _input(event: InputEvent) -> void:
 		
 	if event.is_action_pressed("enter_location"):
 		var neighbors := tilemap.get_surrounding_cells(get_coords())
+		var terrains := []
+		var num_layers = tilemap.get_layers_count()
 		for i in range(neighbors.size()):
-			
+			for j in range(num_layers):
+				var tiledata = tilemap.get_cell_tile_data(j, neighbors[i])
+				if tiledata:
+					terrains.append(tiledata.terrain)
+		Global.goto_location(get_coords(), terrains)
 
 func get_terrain_of_tile() -> int:
 	var coords := get_coords()
