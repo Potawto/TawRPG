@@ -1,74 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dgv5nj3kragi7"]
+[gd_scene load_steps=4 format=3 uid="uid://dgv5nj3kragi7"]
 
 [ext_resource type="PackedScene" uid="uid://b84gmgr5i4xo6" path="res://Scenes/gui.tscn" id="1_0w7kv"]
-[ext_resource type="Texture2D" uid="uid://e5o2np1nxuij" path="res://Assets/Particles/32x32_Star_0.png" id="1_4p6x2"]
 [ext_resource type="PackedScene" uid="uid://dghtst4ja7wa" path="res://Scenes/player.tscn" id="2_b60aa"]
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dbft7"]
-particle_flag_disable_z = true
-emission_shape = 3
-emission_box_extents = Vector3(1280, 720, 1)
-orbit_velocity_min = -0.04
-orbit_velocity_max = 0.04
-gravity = Vector3(0, 0, 0)
-linear_accel_min = -2.0
-linear_accel_max = 1.31
-tangential_accel_min = -1.0
-tangential_accel_max = 2.0
-scale_min = 0.5
-scale_max = 2.0
-hue_variation_min = -1.0
-hue_variation_max = 1.0
-turbulence_enabled = true
-turbulence_noise_strength = 2.9
-turbulence_noise_scale = 8.815
-turbulence_noise_speed_random = 0.5
-turbulence_influence_max = 0.198
-collision_use_scale = true
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_woqju"]
-particle_flag_disable_z = true
-emission_shape = 3
-emission_box_extents = Vector3(1280, 720, 1)
-orbit_velocity_min = -0.02
-orbit_velocity_max = 0.02
-gravity = Vector3(0, 0, 0)
-linear_accel_min = -2.0
-linear_accel_max = 1.31
-tangential_accel_min = -1.0
-tangential_accel_max = 2.0
-scale_min = 0.0
-hue_variation_min = -1.0
-hue_variation_max = 1.0
-turbulence_enabled = true
-turbulence_noise_strength = 2.9
-turbulence_noise_scale = 8.815
-turbulence_noise_speed_random = 0.5
-turbulence_influence_max = 0.198
-collision_use_scale = true
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_77e5b"]
-particle_flag_disable_z = true
-emission_shape = 3
-emission_box_extents = Vector3(1280, 720, 1)
-angular_velocity_max = 131.76
-orbit_velocity_min = -0.01
-orbit_velocity_max = 0.01
-gravity = Vector3(0, 0, 0)
-linear_accel_min = -2.0
-linear_accel_max = 1.31
-tangential_accel_min = -0.5
-tangential_accel_max = 0.5
-scale_min = 0.1
-scale_max = 0.1
-hue_variation_min = -1.0
-hue_variation_max = 1.0
-turbulence_enabled = true
-turbulence_noise_strength = 2.9
-turbulence_noise_scale = 8.815
-turbulence_noise_speed_random = 0.5
-turbulence_influence_max = 0.198
-collision_use_scale = true
+[ext_resource type="PackedScene" uid="uid://duada8itqhyq7" path="res://Scenes/starscape_background.tscn" id="3_kfppj"]
 
 [node name="Starscape" type="Node2D"]
 
@@ -80,37 +14,4 @@ scale = Vector2(2, 2)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-follow_viewport_enabled = true
-
-[node name="ParallaxLayerBig" type="ParallaxLayer" parent="ParallaxBackground"]
-
-[node name="GPUParticles2D" type="GPUParticles2D" parent="ParallaxBackground/ParallaxLayerBig"]
-position = Vector2(640, 360)
-amount = 200
-process_material = SubResource("ParticleProcessMaterial_dbft7")
-texture = ExtResource("1_4p6x2")
-lifetime = 360.0
-preprocess = 60.0
-
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2(0.5, 0.5)
-
-[node name="GPUParticles2D" type="GPUParticles2D" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2(640, 360)
-amount = 1000
-process_material = SubResource("ParticleProcessMaterial_woqju")
-texture = ExtResource("1_4p6x2")
-lifetime = 360.0
-preprocess = 60.0
-
-[node name="ParallaxLayerTiny" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2(0.1, 0.1)
-
-[node name="GPUParticles2D" type="GPUParticles2D" parent="ParallaxBackground/ParallaxLayerTiny"]
-position = Vector2(640, 360)
-amount = 2000
-process_material = SubResource("ParticleProcessMaterial_77e5b")
-texture = ExtResource("1_4p6x2")
-lifetime = 360.0
-preprocess = 60.0
+[node name="StarscapeBackground" parent="." instance=ExtResource("3_kfppj")]
