@@ -45,6 +45,7 @@ func _process(_delta: float) -> void:
 func _physics_process(_delta: float) -> void:
 	pass
 
+
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("highlight"):
 		tile_outline.visible = not tile_outline.visible
@@ -59,6 +60,7 @@ func _input(event: InputEvent) -> void:
 				if tiledata:
 					terrains.append(tiledata.terrain)
 		Global.goto_location(get_coords(), terrains)
+
 
 func get_terrain_of_tile() -> int:
 	var coords := get_coords()
@@ -87,12 +89,14 @@ func get_terrain_of_tile() -> int:
 			_last_warning = warning
 		return terrains_here[-1]
 
+
 ## Tilemap Vector2i coords
 func get_coords() -> Vector2i:
 	if tilemap:
 		return tilemap.local_to_map(tilemap.to_local(position))
 	else:
 		return Vector2i(0,0)
+
 
 ## World Vector2 coords
 func get_world_coords() -> Vector2:
@@ -109,6 +113,7 @@ func dig_here() -> void:
 	var where = current_tilemap.local_to_map(current_tilemap.to_local(position))
 	
 	current_tilemap.set_cell(-1, where, 1, Vector2i(0,7), 0)
+
 
 func enter_tile() -> void:
 	pass
