@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://bj858hmt3ldp"]
+[gd_scene load_steps=3 format=3 uid="uid://bj858hmt3ldp"]
 
 [ext_resource type="Script" path="res://Scripts/Global.gd" id="1_ycqt3"]
+[ext_resource type="PackedScene" uid="uid://byff43okmwau" path="res://Scenes/location.tscn" id="2_bcws8"]
 
 [node name="Global" type="Node"]
 script = ExtResource("1_ycqt3")
 debug_elements_start_visible = false
 save_path_format = "user://save_{slot}_{note}.json"
+location_scene = ExtResource("2_bcws8")

@@ -1,7 +1,8 @@
 extends Node
 
 @export var debug_elements_start_visible = true
-@export var save_path_format : String
+@export var save_path_format: String
+@export var location_scene: PackedScene
 
 
 var current_scene = null
@@ -9,6 +10,9 @@ var player: Player
 var debug_elements: Array[CanvasItem] = []
 
 var saved_player_position: Vector2
+
+## {Vector2i tilemap coords: location resource}
+var locations: Dictionary = {}
 
 @onready var tree := get_tree()
 
@@ -24,8 +28,8 @@ func _input(event):
 		if not get_tree().current_scene:
 			return
 		# TODO unbad
-		if get_tree().current_scene.name == "Map":
-			Global.goto_scene("Scenes/location.tscn")
+		#if get_tree().current_scene.name == "Map":
+		#	Global.goto_scene("Scenes/location.tscn")
 		elif get_tree().current_scene.name == "Location":
 			Global.goto_scene("Scenes/map.tscn")
 
@@ -36,24 +40,41 @@ func _ready() -> void:
 	#ResourceLoader.load_threaded_request("Scenes/map.tscn")
 	#ResourceLoader.load_threaded_request("Scenes/overworld.tscn")
 	#ResourceLoader.load_threaded_request("Scenes/location.tscn")
-	
 
 
-func goto_scene(path) -> void:
+func goto_location(coords: Vector2i, terrains: Array) -> void:
+	var location
+	if not locations.has(coords):
+		location = location_scene.instantiate()
+		location.terrains_to_include = terrains
+		print(terrains)
+		locations[coords] = location
+	else:
+		location = locations[coords]
+	call_deferred("_deferred_goto_location", location)
+
+func _deferred_goto_location(location) -> void:
+	current_scene.free()
+	current_scene = location
+	get_tree().root.add_child(current_scene)
+	get_tree().current_scene = current_scene
+
+
+func goto_scene(scene) -> void:
 	save()
 	#print("Leaving " + str(current_scene))
-	call_deferred("_deferred_goto_scene", path)
-	
-	
+	call_deferred("_deferred_goto_scene", scene)
+
+
 func save() -> void:
 	# Save player data
 	if is_instance_valid(player):
 		saved_player_position = player.position
 
 
-func _deferred_goto_scene(path):
+func _deferred_goto_scene(scene):
 	current_scene.free()
-	var s = ResourceLoader.load(path)
+	var s = ResourceLoader.load(scene)
 	current_scene = s.instantiate()
 	get_tree().root.add_child(current_scene)
 	get_tree().current_scene = current_scene
