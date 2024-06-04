@@ -29,5 +29,4 @@ zoom = Vector2(4, 4)
 script = ExtResource("4_1on2y")
 
 [node name="StarscapeBackground" parent="." instance=ExtResource("4_d3h6l")]
-follow_viewport_enabled = false
 scroll_ignore_camera_zoom = true
