@@ -31,5 +31,5 @@ func _on_mouse_exited() -> void:
 	add_theme_stylebox_override("panel", _style_box_empty)
 
 
-func _on_gui_input(event: InputEvent) -> void:
+func _on_gui_input(_event: InputEvent) -> void:
 	pass
