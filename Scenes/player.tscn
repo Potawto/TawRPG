@@ -258,6 +258,7 @@ vframes = 7
 shape = SubResource("CircleShape2D_n6b55")
 
 [node name="TileOutline" type="Sprite2D" parent="."]
+visible = false
 modulate = Color(1, 1, 1, 0.490196)
 show_behind_parent = true
 top_level = true

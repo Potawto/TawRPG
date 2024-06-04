@@ -100,7 +100,8 @@ text = "Move - WASD
 Sprint - Shift
 Enter location - E
 Dig - Q
-Debug info - F3"
+Debug info - F3
+Highlight - H"
 vertical_alignment = 1
 
 [node name="Bottom" type="PanelContainer" parent="Margin/Screen/Left"]

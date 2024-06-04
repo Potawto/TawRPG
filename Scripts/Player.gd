@@ -42,6 +42,15 @@ func _process(_delta: float) -> void:
 func _physics_process(_delta: float) -> void:
 	pass
 
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("highlight"):
+		tile_outline.visible = not tile_outline.visible
+		
+	if event.is_action_pressed("enter_location"):
+		var neighbors := tilemap.get_surrounding_cells(get_coords())
+		for i in range(neighbors.size()):
+			
+
 func get_terrain_of_tile() -> int:
 	var coords := get_coords()
 	
