@@ -46,7 +46,7 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("highlight"):
 		tile_outline.visible = not tile_outline.visible
 		
-	if event.is_action_pressed("enter_location"):
+	if event.is_action_pressed("enter_location") and get_tree().current_scene.name == "Map":
 		var neighbors := tilemap.get_surrounding_cells(get_coords())
 		var terrains := []
 		var num_layers = tilemap.get_layers_count()
