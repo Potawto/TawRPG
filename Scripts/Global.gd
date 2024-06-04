@@ -56,6 +56,7 @@ func goto_location(coords: Vector2i, terrains: Array) -> void:
 func _deferred_goto_location(location) -> void:
 	current_scene.free()
 	current_scene = location
+	player = null
 	get_tree().root.add_child(current_scene)
 	get_tree().current_scene = current_scene
 
@@ -76,6 +77,7 @@ func _deferred_goto_scene(scene):
 	current_scene.free()
 	var s = ResourceLoader.load(scene)
 	current_scene = s.instantiate()
+	player = null
 	get_tree().root.add_child(current_scene)
 	get_tree().current_scene = current_scene
 
