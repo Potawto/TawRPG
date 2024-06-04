@@ -62,6 +62,9 @@ func get_terrain_of_tile() -> int:
 	
 	var terrains_here: Array = []
 	
+	if not tilemap:
+		return -1
+	
 	for i in range(tilemap.get_layers_count()):
 		var data = tilemap.get_cell_tile_data(i, coords)
 		if data:
