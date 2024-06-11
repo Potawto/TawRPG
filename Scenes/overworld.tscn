@@ -4,7 +4,7 @@
 [ext_resource type="TileSet" uid="uid://bpwonhri7qasl" path="res://Resources/overworld_tileset.tres" id="2_mpvx7"]
 [ext_resource type="Script" path="res://Scripts/OverworldCamera.gd" id="3_ljseo"]
 [ext_resource type="PackedScene" uid="uid://dghtst4ja7wa" path="res://Scenes/player.tscn" id="4_8ndyr"]
-[ext_resource type="PackedScene" uid="uid://c7htv817hmf2a" path="res://Scenes/toon.tscn" id="5_d2tip"]
+[ext_resource type="PackedScene" uid="uid://bngtg4akubafk" path="res://Scenes/toon.tscn" id="5_d2tip"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xai03"]
 size = Vector2(320, 180)

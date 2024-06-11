@@ -1,8 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dgv5nj3kragi7"]
+[gd_scene load_steps=4 format=3 uid="uid://se0mg0eislph"]
 
 [ext_resource type="PackedScene" uid="uid://b84gmgr5i4xo6" path="res://Scenes/gui.tscn" id="1_0w7kv"]
 [ext_resource type="PackedScene" uid="uid://dghtst4ja7wa" path="res://Scenes/player.tscn" id="2_b60aa"]
-[ext_resource type="PackedScene" uid="uid://duada8itqhyq7" path="res://Scenes/starscape_background.tscn" id="3_kfppj"]
+[ext_resource type="PackedScene" uid="uid://bjjjvi7jie7c7" path="res://Scenes/starscape_background.tscn" id="3_kfppj"]
 
 [node name="Starscape" type="Node2D"]
 

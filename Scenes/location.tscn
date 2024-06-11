@@ -1,10 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://byff43okmwau"]
+[gd_scene load_steps=7 format=3 uid="uid://c62o3moeptubl"]
 
 [ext_resource type="Script" path="res://Scripts/Location.gd" id="1_pw8e3"]
 [ext_resource type="PackedScene" uid="uid://b84gmgr5i4xo6" path="res://Scenes/gui.tscn" id="2_6vsch"]
 [ext_resource type="TileSet" uid="uid://bpwonhri7qasl" path="res://Resources/overworld_tileset.tres" id="3_11bae"]
 [ext_resource type="Script" path="res://Scripts/LocationCamera.gd" id="4_1on2y"]
-[ext_resource type="PackedScene" uid="uid://duada8itqhyq7" path="res://Scenes/starscape_background.tscn" id="4_d3h6l"]
+[ext_resource type="PackedScene" uid="uid://bjjjvi7jie7c7" path="res://Scenes/starscape_background.tscn" id="4_d3h6l"]
 [ext_resource type="PackedScene" uid="uid://dghtst4ja7wa" path="res://Scenes/player.tscn" id="5_onkfu"]
 
 [node name="Location" type="Node"]

@@ -9,7 +9,7 @@
 [ext_resource type="Script" path="res://Scripts/SimpleSaveButton.gd" id="6_bdv0v"]
 [ext_resource type="Script" path="res://Scripts/SimpleLoadButton.gd" id="7_q7lxg"]
 [ext_resource type="Script" path="res://Scripts/quitme.gd" id="9_gc0oc"]
-[ext_resource type="PackedScene" uid="uid://duada8itqhyq7" path="res://Scenes/starscape_background.tscn" id="10_0y7q6"]
+[ext_resource type="PackedScene" uid="uid://bjjjvi7jie7c7" path="res://Scenes/starscape_background.tscn" id="10_0y7q6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pfspp"]
 bg_color = Color(0.892982, 0.153494, 0.64581, 1)
