@@ -79,15 +79,18 @@ func get_terrain_of_tile() -> int:
 	
 	if terrains_here.is_empty():
 		push_warning("No terrain here: ", coords)
-		return -1
+		current_terrain = -1
+		return current_terrain
 	elif terrains_here.size() == 1:
-		return terrains_here[0]
+		current_terrain = terrains_here[0]
+		return current_terrain
 	else:
 		var warning = "Multiple terrains here: %s %s" % [coords, terrains_here]
 		if warning != _last_warning:
 			push_warning(warning)
 			_last_warning = warning
-		return terrains_here[-1]
+		current_terrain = terrains_here[-1]
+		return current_terrain
 
 
 ## Tilemap Vector2i coords
