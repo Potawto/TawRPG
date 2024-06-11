@@ -1,10 +1,11 @@
-[gd_scene load_steps=26 format=3 uid="uid://dghtst4ja7wa"]
+[gd_scene load_steps=27 format=3 uid="uid://dghtst4ja7wa"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_h8gos"]
 [ext_resource type="Texture2D" uid="uid://x0m0kueea30i" path="res://Assets/Sprites/tile_outline.png" id="2_nvdwl"]
 [ext_resource type="Texture2D" uid="uid://d273whwcmoryy" path="res://Assets/Sprites/FarmerGoblin.png" id="3_v7aa5"]
 [ext_resource type="AudioStream" uid="uid://cpevp2odhfjqk" path="res://Assets/Audio/jump.wav" id="4_s7fxd"]
 [ext_resource type="Script" path="res://Scripts/States/StateMachine.gd" id="4_yyoh6"]
+[ext_resource type="Script" path="res://Scripts/TerrainModulating.gd" id="5_4nbwj"]
 [ext_resource type="Script" path="res://Scripts/States/PlayerStates/IdleState.gd" id="5_62ect"]
 [ext_resource type="Texture2D" uid="uid://e5o2np1nxuij" path="res://Assets/Particles/32x32_Star_0.png" id="5_qtomy"]
 [ext_resource type="Script" path="res://Scripts/States/PlayerStates/WalkState.gd" id="6_uj3qy"]
@@ -284,6 +285,12 @@ texture = ExtResource("5_qtomy")
 lifetime = 2.0
 explosiveness = 0.1
 draw_order = 2
+script = ExtResource("5_4nbwj")
+colors = {
+0: Color(0, 0.897687, 0, 1),
+2: Color(0.983482, 0.824368, 0.419943, 1),
+9: Color(1.11904e-06, 0.426875, 7.70092e-07, 1)
+}
 
 [node name="RightDust" type="GPUParticles2D" parent="VFX" groups=["player_vfx"]]
 modulate = Color(1, 1, 1, 0.352941)
@@ -295,6 +302,12 @@ texture = ExtResource("5_qtomy")
 lifetime = 2.0
 explosiveness = 0.1
 draw_order = 2
+script = ExtResource("5_4nbwj")
+colors = {
+0: Color(0, 0.897687, 0, 1),
+2: Color(0.983482, 0.824368, 0.419943, 1),
+9: Color(1.11904e-06, 0.426875, 7.70092e-07, 1)
+}
 
 [node name="SFX" type="Node2D" parent="."]
 
