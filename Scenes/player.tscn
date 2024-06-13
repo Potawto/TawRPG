@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://dghtst4ja7wa"]
+[gd_scene load_steps=28 format=3 uid="uid://dghtst4ja7wa"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_h8gos"]
 [ext_resource type="Texture2D" uid="uid://x0m0kueea30i" path="res://Assets/Sprites/tile_outline.png" id="2_nvdwl"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://Scripts/States/PlayerStates/WalkState.gd" id="6_uj3qy"]
 [ext_resource type="Script" path="res://Scripts/States/PlayerStates/JumpState.gd" id="7_76g84"]
 [ext_resource type="Script" path="res://Scripts/States/PlayerStates/DigState.gd" id="10_dms7s"]
+[ext_resource type="PackedScene" uid="uid://pihyktcbtmuj" path="res://Scenes/planted_tree.tscn" id="12_apw1e"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_n6b55"]
 radius = 2.0
@@ -214,7 +215,7 @@ _data = {
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_ajroe"]
+[sub_resource type="CurveTexture" id="CurveTexture_20l07"]
 curve = SubResource("Curve_qqm4g")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_10cro"]
@@ -229,7 +230,7 @@ gravity = Vector3(0, 1, 0)
 scale_min = 0.2
 scale_max = 0.4
 color = Color(0.74902, 0.541176, 0.25098, 0.67451)
-alpha_curve = SubResource("CurveTexture_ajroe")
+alpha_curve = SubResource("CurveTexture_20l07")
 turbulence_enabled = true
 turbulence_noise_strength = 0.2
 turbulence_noise_scale = 2.0
