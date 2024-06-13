@@ -338,5 +338,6 @@ jump_speed = 4.0
 
 [node name="DigState" type="Node" parent="PlayerStateMachine"]
 script = ExtResource("10_dms7s")
+what_to_plant = ExtResource("12_apw1e")
 
 [connection signal="speed_changed" from="." to="PlayerStateMachine/WalkState" method="_on_player_speed_changed"]
