@@ -31,7 +31,6 @@ hue_variation_min = -0.36
 [node name="PlantedTree" type="Node2D"]
 z_index = 10
 z_as_relative = false
-y_sort_enabled = true
 texture_filter = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
