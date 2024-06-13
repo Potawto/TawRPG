@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://bddlnik6ulwmu"]
+[gd_scene load_steps=8 format=3 uid="uid://bddlnik6ulwmu"]
 
 [ext_resource type="Script" path="res://Scripts/Overworld.gd" id="1_0322d"]
 [ext_resource type="TileSet" uid="uid://bpwonhri7qasl" path="res://Resources/overworld_tileset.tres" id="2_mpvx7"]
 [ext_resource type="Script" path="res://Scripts/OverworldCamera.gd" id="3_ljseo"]
 [ext_resource type="PackedScene" uid="uid://dghtst4ja7wa" path="res://Scenes/player.tscn" id="4_8ndyr"]
 [ext_resource type="PackedScene" uid="uid://bngtg4akubafk" path="res://Scenes/toon.tscn" id="5_d2tip"]
+[ext_resource type="PackedScene" uid="uid://pihyktcbtmuj" path="res://Scenes/planted_tree.tscn" id="6_iwuxr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xai03"]
 size = Vector2(320, 180)
@@ -46,5 +47,8 @@ position = Vector2(137, 82)
 
 [node name="Toon" parent="." instance=ExtResource("5_d2tip")]
 position = Vector2(168, 96)
+
+[node name="PlantedTree" parent="." instance=ExtResource("6_iwuxr")]
+position = Vector2(124, 49)
 
 [connection signal="body_exited" from="OverworldCamera/ViewportArea" to="OverworldCamera" method="_on_viewport_area_body_exited"]
