@@ -1,0 +1,65 @@
+[gd_scene load_steps=7 format=3 uid="uid://pihyktcbtmuj"]
+
+[ext_resource type="Texture2D" uid="uid://behjjgr2lnk6v" path="res://Assets/Sprites/new_punyworld-overworld-tileset.png" id="1_8acob"]
+[ext_resource type="Texture2D" uid="uid://e5o2np1nxuij" path="res://Assets/Particles/32x32_Star_0.png" id="2_35p76"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4o6ny"]
+atlas = ExtResource("1_8acob")
+region = Rect2(0, 464, 16, 16)
+
+[sub_resource type="Curve" id="Curve_hlcmx"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.451613, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_5do3x"]
+curve = SubResource("Curve_hlcmx")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1ektp"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 2.0
+direction = Vector3(0, -1, 0)
+spread = 30.0
+initial_velocity_min = 5.0
+initial_velocity_max = 5.0
+gravity = Vector3(0, 2, 0)
+scale_min = 0.2
+scale_max = 0.2
+alpha_curve = SubResource("CurveTexture_5do3x")
+hue_variation_min = -0.36
+
+[node name="PlantedTree" type="Node2D"]
+z_index = 10
+z_as_relative = false
+y_sort_enabled = true
+texture_filter = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_4o6ny")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(0, -2)
+amount = 20
+process_material = SubResource("ParticleProcessMaterial_1ektp")
+texture = ExtResource("2_35p76")
+lifetime = 6.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -10.0
+offset_top = -2.0
+offset_right = 10.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "[center][font=Assets/Fonts/PixelOperator8.ttf][font_size=6
+][pulse freq=0.2 color=#00ff00 ease=-2.0][rainbow freq=0.4 sat=0.8 val=0.8][outline_size=1][outline_color=black]tree"
+scroll_active = false
+autowrap_mode = 0
+shortcut_keys_enabled = false
