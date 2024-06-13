@@ -111,11 +111,14 @@ func get_world_coords() -> Vector2:
 	return world_coords
 
 
-func dig_here() -> void:
+func dig_here(what: PackedScene) -> void:
 	var current_tilemap = $"../TileMap" as TileMap
-	var where = current_tilemap.local_to_map(current_tilemap.to_local(position))
-	
-	current_tilemap.set_cell(-1, where, 1, Vector2i(0,7), 0)
+	#var where = current_tilemap.local_to_map(current_tilemap.to_local(position))
+	#current_tilemap.set_cell(-1, where, 1, Vector2i(0,7), 0)
+	var plant = what.instantiate()
+	plant.position.x = position.x
+	plant.position.y = position.y - 5
+	owner.add_child(plant)
 
 
 func enter_tile() -> void:
