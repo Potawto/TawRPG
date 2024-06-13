@@ -2,6 +2,8 @@ extends State
 
 @export var dig_speed: float = 1
 @export var finish_position: float = 0.7
+@export var what_to_plant: PackedScene
+
 var _planted = false
 
 @onready var dig_sfx := $"../../SFX/JumpSFX" as AudioStreamPlayer2D
