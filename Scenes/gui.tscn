@@ -1,5 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://b84gmgr5i4xo6"]
+[gd_scene load_steps=13 format=3 uid="uid://b84gmgr5i4xo6"]
 
+[ext_resource type="Script" path="res://Scenes/MoneyCounter.gd" id="1_454ej"]
 [ext_resource type="StyleBox" uid="uid://bbd3v0yucwbc0" path="res://Resources/style_box_empty.tres" id="1_cbkwu"]
 [ext_resource type="Script" path="res://Scripts/MenuBarButtonGotoScene.gd" id="2_s5fkm"]
 [ext_resource type="StyleBox" uid="uid://dj31yqshcinkj" path="res://Resources/menubar_style_box_hover.tres" id="3_gbdx7"]
@@ -112,29 +113,29 @@ mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_2qjem")
 
 [node name="MarginContainer" type="MarginContainer" parent="Margin/Screen/Left/Bottom"]
-visible = false
 layout_mode = 2
 theme_override_constants/margin_left = 4
 theme_override_constants/margin_top = 4
 theme_override_constants/margin_right = 4
 theme_override_constants/margin_bottom = 4
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Margin/Screen/Left/Bottom/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Margin/Screen/Left/Bottom/MarginContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Margin/Screen/Left/Bottom/MarginContainer/VBoxContainer"]
+[node name="MoneyIcon" type="Label" parent="Margin/Screen/Left/Bottom/MarginContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 12
-text = "test"
+text = "💰"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label2" type="Label" parent="Margin/Screen/Left/Bottom/MarginContainer/VBoxContainer"]
+[node name="MoneyCounter" type="Label" parent="Margin/Screen/Left/Bottom/MarginContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 12
-text = "test"
+text = "-1"
 horizontal_alignment = 1
 vertical_alignment = 1
+script = ExtResource("1_454ej")
 
 [node name="Center" type="VBoxContainer" parent="Margin/Screen"]
 layout_mode = 2
