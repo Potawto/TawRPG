@@ -53,6 +53,7 @@ func goto_location(coords: Vector2i, terrains: Array) -> void:
 		location = locations[coords]
 	call_deferred("_deferred_goto_location", location)
 
+
 func _deferred_goto_location(location) -> void:
 	save()
 	current_scene.free()
