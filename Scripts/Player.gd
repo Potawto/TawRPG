@@ -16,8 +16,15 @@ const TERRAIN_TYPE_NAMES: Array[StringName] = [
 	&"forest",
 ]
 
+@export_group("Movement")
 @export var default_speed: float = 64.0
 @export var sprint_speed: float = 128.0
+@export_group("Economy")
+@export var starting_gold: int = 1
+@export var tree_cost: int = 1
+@export var gold_per_tree: int = 1
+## in seconds
+@export var gold_per_tree_frequency: float = 2.0
 
 var current_terrain: int
 var speed := default_speed :
@@ -27,7 +34,10 @@ var speed := default_speed :
 			speed = new_value
 			speed_changed.emit(old_value, new_value)
 
-var _last_warning: String;
+var _last_warning: String
+var trees_planted: int = 0
+var gold: int = 0
+var economy_timer: float = 0
 
 @onready var animation_player := $AnimationPlayer as AnimationPlayer
 @onready var sprite := $Sprite2D as Sprite2D
@@ -38,8 +48,9 @@ func _ready() -> void:
 	Global.player = self
 
 
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
 	tile_outline.position = get_world_coords()
+	_process_economy(delta)
 
 
 func _physics_process(_delta: float) -> void:
@@ -61,6 +72,13 @@ func _input(event: InputEvent) -> void:
 					terrains.append(tiledata.terrain)
 		Global.goto_location(get_coords(), terrains)
 
+
+func _process_economy(delta: float) -> void:
+	if economy_timer >= delta:
+		economy_timer = 0
+		gold += trees_planted * gold_per_tree
+	
+	economy_timer += delta
 
 func get_terrain_of_tile() -> int:
 	var coords := get_coords()
@@ -119,6 +137,8 @@ func dig_here(what: PackedScene) -> void:
 	plant.position.x = position.x
 	plant.position.y = position.y - 5
 	owner.add_child(plant)
+	trees_planted += 1
+	gold -= tree_cost
 
 
 func enter_tile() -> void:
