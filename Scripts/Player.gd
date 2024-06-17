@@ -77,11 +77,12 @@ func _input(event: InputEvent) -> void:
 
 
 func _process_economy(delta: float) -> void:
-	if economy_timer >= delta:
-		economy_timer = 0
+	economy_timer += delta
+	if economy_timer >= gold_per_tree_frequency:
+		economy_timer = 0.0
 		gold += trees_planted * gold_per_tree
 	
-	economy_timer += delta
+
 
 func get_terrain_of_tile() -> int:
 	var coords := get_coords()
