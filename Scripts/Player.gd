@@ -46,6 +46,7 @@ var economy_timer: float = 0
 
 func _ready() -> void:
 	Global.player = self
+	gold = starting_gold
 
 
 func _process(delta: float) -> void:
