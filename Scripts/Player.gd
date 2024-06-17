@@ -24,7 +24,7 @@ const TERRAIN_TYPE_NAMES: Array[StringName] = [
 @export var tree_cost: int = 1
 @export var gold_per_tree: int = 1
 ## in seconds
-@export var gold_per_tree_frequency: float = 2.0
+@export var gold_per_tree_frequency: float = 1.0
 
 var current_terrain: int
 var speed := default_speed :
