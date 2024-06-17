@@ -35,6 +35,8 @@ var speed := default_speed :
 			speed_changed.emit(old_value, new_value)
 
 var _last_warning: String
+
+## Economy
 var trees_planted: int = 0
 var gold: int = 0
 var economy_timer: float = 0
