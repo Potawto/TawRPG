@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" path="res://Scenes/MoneyCounter.gd" id="1_454ej"]
 [ext_resource type="StyleBox" uid="uid://bbd3v0yucwbc0" path="res://Resources/style_box_empty.tres" id="1_cbkwu"]
+[ext_resource type="Script" path="res://Scripts/MoneyCounter.gd" id="1_h8341"]
 [ext_resource type="Script" path="res://Scripts/MenuBarButtonGotoScene.gd" id="2_s5fkm"]
 [ext_resource type="StyleBox" uid="uid://dj31yqshcinkj" path="res://Resources/menubar_style_box_hover.tres" id="3_gbdx7"]
 [ext_resource type="Script" path="res://Scripts/MenuBarButtonToggleVisible.gd" id="4_oklpy"]
@@ -135,7 +136,14 @@ theme_override_font_sizes/font_size = 12
 text = "-1"
 horizontal_alignment = 1
 vertical_alignment = 1
+<<<<<<< Updated upstream
 script = ExtResource("1_454ej")
+=======
+<<<<<<< Updated upstream
+=======
+script = ExtResource("1_h8341")
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
 
 [node name="Center" type="VBoxContainer" parent="Margin/Screen"]
 layout_mode = 2
