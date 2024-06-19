@@ -15,7 +15,10 @@ extends State
 ## particles amount = tuned_particles * speed increase% * this
 @export var particles_speed_multiplier: float = 50.0
 
-@onready var player := $"../.." as CharacterBody2D
+var destination: Vector2
+var destination_valid = false
+
+@onready var player := $"../.." as Player
 ## VFX
 @onready var dust_left_particles := $"../../VFX/LeftDust" as GPUParticles2D
 @onready var dust_right_particles := $"../../VFX/RightDust" as GPUParticles2D
@@ -26,10 +29,16 @@ extends State
 @onready var loop_end := walk_sfx_stream.loop_end as int
 @onready var loop_length := loop_end - loop_begin
 
-func enter(_msg := {}) -> void:
+func enter(msg := {}) -> void:
 	dust_left_particles.emitting = true
 	dust_right_particles.emitting = true
 	walk_sfx_player.play()
+	
+	if msg and msg.has("pos"):
+		var pos := msg["pos"] as Vector2i
+		destination = owner.to_global(pos)
+		destination_valid = true
+		print(pos)
 
 
 func exit() -> void:
@@ -42,14 +51,33 @@ func _unhandled_input(event: InputEvent) -> void:
 		player.speed = player.sprint_speed
 	if event.is_action_released("sprint"):
 		player.speed = player.default_speed
+		
+	if event is InputEventMouseButton and event.is_pressed():
+		destination = owner.to_global(event.position)
+		destination_valid = true
 
 func update(_delta:float) -> void:
 	pass
 
-func physics_update(_delta: float) -> void:
-	owner.velocity.x = Input.get_axis("left", "right")
-	owner.velocity.y = Input.get_axis("up", "down")
-	owner.velocity = owner.velocity.normalized() * owner.speed
+func physics_update(delta: float) -> void:
+	var h_axis = Input.get_axis("left", "right")
+	var v_axis = Input.get_axis("up", "down")
+	if h_axis != 0 or v_axis != 0:
+		owner.velocity.x = Input.get_axis("left", "right")
+		owner.velocity.y = Input.get_axis("up", "down")
+		owner.velocity = owner.velocity.normalized() * owner.speed
+		destination_valid = false
+	
+	if destination_valid:
+		if owner.position == destination:
+			destination_valid = false
+		else:
+			player.speed = player.sprint_speed
+			owner.velocity.x = player.global_position.x - destination.x
+			owner.velocity.y = player.global_position.y - destination.x
+			owner.velocity = owner.velocity.normalized() * owner.speed
+	else:
+		owner.velocity = Vector2.ZERO
 	
 	if Input.is_action_just_pressed("jump"):
 		transitioned.emit("JumpState")
@@ -95,3 +123,4 @@ func _on_player_speed_changed(_old_value: float, new_value: float) -> void:
 	#var particles_amount = tuned_particles * speed_increase * particles_speed_multiplier
 	dust_left_particles.amount_ratio = speed_increase * particles_speed_multiplier
 	dust_right_particles.amount_ratio = speed_increase * particles_speed_multiplier
+		

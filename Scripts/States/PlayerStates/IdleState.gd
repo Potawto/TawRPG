@@ -1,6 +1,11 @@
 extends State
 
 
+func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton and event.is_pressed():
+		transitioned.emit("WalkState", {"pos": event.position})
+
+
 func enter(_msg := {}) -> void:
 	owner.velocity = Vector2.ZERO
 
